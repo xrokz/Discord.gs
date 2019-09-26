@@ -1,13 +1,14 @@
 const WebSocket = require('./Utils/WebSocket');
 const Events = require("./Utils/Events");
 const EventEmitter = require("events");
-
+let userToken;
 class Client extends EventEmitter{
     constructor(token) {
         super()
         if(!token) throw Error("DiscordApiError: Incorrect Login Details");
         this.token = token;
-
+        userToken = token
+        module.exports.token = token;
     }
 
     

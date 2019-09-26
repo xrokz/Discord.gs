@@ -1,4 +1,4 @@
-const Message = require("./Utilities/Message");
+import Utils from './Utilities/Utiler';
 
 class Events{
     constructor(event, client) {
@@ -15,7 +15,7 @@ class Events{
             
             // console.log(this.event);
             if(this.event == "ready") {
-                this.client.emit("ready", new Message(this.event.d))
+                this.client.emit("ready", new Utils.Message(this.event.d))
             } else if(this.event == "messageCreate") {
                 this.client.emit("message", event.d)
             }

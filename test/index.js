@@ -10,7 +10,7 @@ client.on("ready", () => {
 client.on("message", async (ctx) => {
 	if(ctx.author.bot) return;
 	// if(ctx.content.startsWith(prefix + "ping")) {
-		console.log(ctx.author.username);
+		console.log(ctx.channel.topic);
 	
 	
 });
