@@ -15,9 +15,9 @@ class Events{
             
             // console.log(this.event);
             if(this.event == "ready") {
-                this.client.emit("ready", new Utils.Message(this.event.d))
+                this.client.emit("ready")
             } else if(this.event == "messageCreate") {
-                this.client.emit("message", event.d)
+                this.client.emit("message", new Utils.Message(event.d))
             }
         
     }
