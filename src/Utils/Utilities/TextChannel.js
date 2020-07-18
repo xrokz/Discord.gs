@@ -1,28 +1,27 @@
-import api from "../discord/api";
-import Utils from './Utiler';
+const api = require("../discord/api");
+const Message = require('./Message');
 
-let channel;
 class TextChannel {
-    constructor (channel_id) {
+    constructor (channel_id, client) {
         this.id = channel_id;
-        channel = api.get(`/channels/${channel_id}`)
+        var channel;
+        api.get(`/channels/${channel_id}`, client.token).then(c => {
+            console.log(c.data)
+        })
+        console.log(channel);
+        this.name = channel.name;
+        this.type = channel.type;
+        this.position = channel.position;
+        this.topic = channel.topic;
+        this.nsfw = channel.nsfw;
+        this.lastMessageID = channel.last_message_id;
+        this.parentID = channel.parent_id;
     }
-
-    //Getters
-
-    get name() { return channel.name;}
-    get type() { return channel.type;}
-    get position() { return channel.position;}
-    get topic() { return channel.topic;}
-    get nsfw() { return channel.nsfw;}
-    get lastMessageID() { return channel.last_message_id;}
-    get parentID() { return channel.parent_id;}
-    // get guild() { return new Utils.Guild(channel.guild_id);}
+    // this.guild = new Utils.Guild(channel.guild_id);
     
 
     //Setters
 
 
 }
-
 module.exports = TextChannel;

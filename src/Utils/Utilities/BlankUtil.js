@@ -1,5 +1,5 @@
-import api from "../discord/api";
-import Utils from './Utiler';
+const api = require("../discord/api");
+const Utils = require('./Utiler');
 
 class Util{
     constructor(params) {

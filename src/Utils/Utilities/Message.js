@@ -1,16 +1,17 @@
-import api from "../discord/api";
-import Utils from './Utiler';
+const api = require("../discord/api");
+const TextChannel = require('./TextChannel');
 let message;
 
 class Message {
 
-    constructor(message_payload) {
+    constructor(message_payload, client) {
         message = message_payload;
+        this.id = message.id;
+        this.content = message.content;
+        this.author = message.author;
+        this.channel = new TextChannel(message.channel_id, client);
     }
     
-    get id() { return message.id; }
-    get content() { return message.content; }
-    get author() { return message.author; }
-    get channel() { return new Utils.TextChannel(message.channel_id); }
+    
 }
 module.exports = Message;
